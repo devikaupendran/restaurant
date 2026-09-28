@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: var(--font-cormorant), "Playfair Display", Georgia, serif;
+    --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Luxurious Metallic Gold Gradient for Text */
+.text-gold-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5E6D3 30%, #E6C896 70%, #C29B59 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-champagne {
+  background: linear-gradient(135deg, #FDF7EF 0%, #EBD4B0 50%, #CFA468 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button Gold Fill */
+.bg-gold-btn {
+  background: linear-gradient(135deg, #EAD0A8 0%, #D5B37C 50%, #C59E61 100%);
+}
+
+.bg-gold-btn:hover {
+  background: linear-gradient(135deg, #F3D9B3 0%, #E0BE87 50%, #D1AA6C 100%);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(12, 10, 9, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
