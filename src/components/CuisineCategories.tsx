@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 interface Category {
   id: string;
@@ -10,121 +13,90 @@ interface Category {
 
 const categories: Category[] = [
   {
-    id: "flavoured-al-faham",
-    title: "Flavoured Al Faham",
-    subtitle: "Charcoal Grilled Specialties",
-    image: "/images/menu-tandoor.jpg",
+    id: "breakfast",
+    title: "Breakfast",
+    subtitle: "Morning Fresh Delights",
+    image: "/images/main-menu/breakfast-main.png",
+  },
+  {
+    id: "starters",
+    title: "Starters",
+    subtitle: "Appetizers & Small Bites",
+    image: "/images/main-menu/starters-main.png",
   },
   {
     id: "biriyani",
     title: "Biriyani",
     subtitle: "Aromatic & Authentic",
-    image: "/images/menu-biriyani.jpg",
+    image: "/images/main-menu/biriyani-main.png",
   },
   {
     id: "arabic",
     title: "Arabic",
-    subtitle: "Middle Eastern Delights",
-    image: "/images/menu-arabic.jpg",
+    subtitle: "Mandhi & Charcoal Al Faham",
+    image: "/images/main-menu/arabic-main.png",
   },
   {
-    id: "breads",
-    title: "Breads",
-    subtitle: "Fresh Naans & Rotis",
-    image: "/images/menu-breads.jpg",
+    id: "maincourse",
+    title: "Main Course",
+    subtitle: "Curries, Breads & Rice",
+    image: "/images/main-menu/maincourse-main.png",
   },
   {
-    id: "flavoured-rice",
-    title: "Flavoured Rice",
-    subtitle: "Infused & Seasoned",
-    image: "/images/culinary-experience-img.png",
-  },
-  {
-    id: "egg",
-    title: "Egg Specialties",
-    subtitle: "Rich & Savory",
-    image: "/images/culinary-experience-img.png",
-  },
-  {
-    id: "meals",
-    title: "Traditional Meals",
-    subtitle: "Hearty Thalis & Platters",
-    image: "/images/culinary-experience-img.png",
-  },
-  {
-    id: "fish-on-plate",
-    title: "Fish on Plate",
-    subtitle: "Grilled & Fried Catch",
-    image: "/images/sushi-selection.jpg",
-  },
-  {
-    id: "tandoor",
-    title: "Tandoor",
-    subtitle: "Clay Oven Grill",
-    image: "/images/menu-tandoor.jpg",
-  },
-  {
-    id: "from-sea",
-    title: "From Sea",
-    subtitle: "Ocean Fresh Delicacies",
-    image: "/images/sushi-selection.jpg",
-  },
-  {
-    id: "appetizers",
-    title: "Appetizers",
-    subtitle: "Starters & Small Bites",
-    image: "/images/truffle-pasta.jpg",
-  },
-  {
-    id: "from-the-great-wall",
-    title: "From the Great Wall",
-    subtitle: "Authentic Asian Starters",
-    image: "/images/culinary-experience-img.png",
-  },
-  {
-    id: "salads",
-    title: "Salads",
-    subtitle: "Fresh & Crisp Greens",
-    image: "/images/culinary-experience-img.png",
-  },
-  {
-    id: "chinese-rice-and-noodles",
-    title: "Chinese Rice & Noodles",
+    id: "chinese",
+    title: "Chinese",
     subtitle: "Wok Tossed Classics",
-    image: "/images/menu-chinese-noodles.jpg",
+    image: "/images/main-menu/chinese-main.png",
   },
   {
-    id: "pizza",
-    title: "Pizza",
-    subtitle: "Handcrafted & Wood-Fired",
-    image: "/images/truffle-pasta.jpg",
+    id: "sea-food",
+    title: "Sea Food",
+    subtitle: "Fresh Catch & Coastal Specials",
+    image: "/images/main-menu/sea-food-main.png",
   },
   {
-    id: "thai-cuisine",
-    title: "Thai Cuisine",
-    subtitle: "Aromatic Herbs & Spices",
-    image: "/images/culinary-experience-img.png",
-  },
-  {
-    id: "north-indian-veg-tastes",
-    title: "North Indian Veg Tastes",
-    subtitle: "Rich Curries & Gravies",
-    image: "/images/menu-veg-curry.jpg",
-  },
-  {
-    id: "indian-non-veg-dishes",
-    title: "Indian Non Veg Dishes",
-    subtitle: "Spiced Meat & Poultry",
-    image: "/images/wagyu-steak.jpg",
+    id: "beverages",
+    title: "Beverages",
+    subtitle: "Shakes, Juices & Mocktails",
+    image: "/images/main-menu/beverages-main.png",
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 export default function CuisineCategories() {
   return (
-    <section className="bg-[#FAF7F2] pb-24 pt-8 px-6 sm:px-8 lg:px-12">
+    <section className="bg-[#FAF7F2] pb-24 pt-12 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mx-auto text-center mb-12 sm:mb-16"
+        >
           {/* Eyebrow */}
           <div className="flex items-center justify-center space-x-4 mb-3">
             <span className="h-[1px] w-10 sm:w-16 bg-[#CDB58E]/60 inline-block" />
@@ -144,41 +116,57 @@ export default function CuisineCategories() {
 
           {/* Subtitle */}
           <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed max-w-md mx-auto">
-            Explore our extensive selection of 18 handcrafted culinary categories.
+            Explore our main culinary categories crafted with genuine passion and authentic recipes.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 18 Category Cards Responsive Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
-          {categories.map((cat) => (
-            <Link
+        {/* Responsive Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6"
+        >
+          {categories.map((cat, idx) => (
+            <motion.div
               key={cat.id}
-              href="/menu"
-              className="group bg-[#F4EFE7] hover:bg-[#EFE9DF] rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center justify-between border border-[#E8DEC9]/60 hover:border-[#D9CBAE] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer transform hover:-translate-y-1"
+              variants={itemVariants}
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              {/* Dish Image Container */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3 flex items-center justify-center overflow-hidden rounded-full">
-                <Image
-                  src={cat.image}
-                  alt={cat.title}
-                  width={110}
-                  height={110}
-                  className="object-cover w-full h-full rounded-full group-hover:scale-110 transition-transform duration-500 drop-shadow-md"
-                />
-              </div>
+              <Link
+                href={cat.id === "breakfast" ? "/menu/breakfast" : "/menu"}
+                className="group bg-[#F4EFE7] hover:bg-[#EFE9DF] rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center justify-between border border-[#E8DEC9]/60 hover:border-[#D9CBAE] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer h-full"
+              >
+                {/* Dish Image Container */}
+                <motion.div
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ repeat: Infinity, duration: 3 + (idx % 3), ease: "easeInOut" }}
+                  className="relative w-24 h-24 sm:w-28 sm:h-28 mb-3 flex items-center justify-center overflow-hidden rounded-full border border-amber-900/10"
+                >
+                  <Image
+                    src={cat.image}
+                    alt={cat.title}
+                    width={120}
+                    height={120}
+                    className="object-cover w-full h-full rounded-full group-hover:scale-110 transition-transform duration-500 drop-shadow-md"
+                  />
+                </motion.div>
 
-              {/* Title & Subtitle */}
-              <div className="flex flex-col items-center">
-                <h3 className="font-serif text-sm sm:text-base font-semibold text-stone-900 mb-0.5 group-hover:text-[#B38F4E] transition-colors leading-tight">
-                  {cat.title}
-                </h3>
-                <span className="text-stone-500 text-[10px] font-light tracking-wide">
-                  {cat.subtitle}
-                </span>
-              </div>
-            </Link>
+                {/* Title & Subtitle */}
+                <div className="flex flex-col items-center">
+                  <h3 className="font-serif text-sm sm:text-base font-semibold text-stone-900 mb-0.5 group-hover:text-[#B38F4E] transition-colors leading-tight">
+                    {cat.title}
+                  </h3>
+                  <span className="text-stone-500 text-[10px] font-light tracking-wide line-clamp-1">
+                    {cat.subtitle}
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

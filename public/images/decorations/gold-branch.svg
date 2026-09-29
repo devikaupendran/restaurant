@@ -1,0 +1,58 @@
+<svg width="450" height="600" viewBox="0 0 450 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Curved Stem 1 -->
+  <path d="M50 550 C120 480 180 380 200 280 C220 180 160 100 120 50" stroke="url(#gold-gradient)" stroke-width="2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Offshoot Branch Top Left -->
+  <path d="M140 100 C100 80 60 70 30 75" stroke="url(#gold-gradient)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <path d="M100 85 C80 65 60 50 40 45" stroke="url(#gold-gradient)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Offshoot Branch Center Right -->
+  <path d="M190 220 C250 200 320 210 380 250" stroke="url(#gold-gradient)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <path d="M280 210 C320 180 360 160 410 150" stroke="url(#gold-gradient)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  <path d="M330 225 C370 240 400 270 430 310" stroke="url(#gold-gradient)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+
+  <!-- Offshoot Branch Bottom Right -->
+  <path d="M170 350 C230 360 290 390 340 440" stroke="url(#gold-gradient)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <path d="M240 370 C280 400 310 440 330 490" stroke="url(#gold-gradient)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Offshoot Branch Left Mid -->
+  <path d="M165 310 C120 300 80 320 40 360" stroke="url(#gold-gradient)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Leaf Motifs (Top Left) -->
+  <path d="M30 75 C 20 60, 15 50, 25 45 C 35 40, 40 55, 30 75 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M60 72 C 50 55, 48 45, 58 40 C 68 35, 70 50, 60 72 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M100 85 C 90 70, 85 60, 95 55 C 105 50, 110 65, 100 85 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M120 50 C 110 35, 105 25, 115 20 C 125 15, 130 30, 120 50 Z" fill="url(#gold-gradient-fill)"/>
+
+  <!-- Leaf Motifs (Center Right) -->
+  <path d="M380 250 C 395 240, 410 235, 415 245 C 420 255, 400 265, 380 250 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M410 150 C 425 140, 440 135, 445 145 C 450 155, 430 165, 410 150 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M360 160 C 375 148, 390 142, 395 152 C 400 162, 380 172, 360 160 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M320 180 C 335 168, 350 162, 355 172 C 360 182, 340 192, 320 180 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M280 210 C 295 198, 310 192, 315 202 C 320 212, 300 222, 280 210 Z" fill="url(#gold-gradient-fill)"/>
+
+  <!-- Leaf Motifs (Lower Right & Left) -->
+  <path d="M340 440 C 355 448, 370 452, 365 462 C 360 472, 345 460, 340 440 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M330 490 C 345 498, 360 502, 355 512 C 350 522, 335 510, 330 490 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M40 360 C 25 368, 15 375, 12 365 C 10 355, 25 350, 40 360 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M80 320 C 65 328, 55 335, 52 325 C 50 315, 65 310, 80 320 Z" fill="url(#gold-gradient-fill)"/>
+
+  <!-- Leaves along main stem -->
+  <path d="M190 280 C 170 270, 160 260, 168 252 C 176 244, 185 260, 190 280 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M175 330 C 155 320, 145 310, 153 302 C 161 294, 170 310, 175 330 Z" fill="url(#gold-gradient-fill)"/>
+  <path d="M150 420 C 130 410, 120 400, 128 392 C 136 384, 145 400, 150 420 Z" fill="url(#gold-gradient-fill)"/>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="gold-gradient" x1="0" y1="0" x2="450" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5C786" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#9E7A36" />
+    </linearGradient>
+    <linearGradient id="gold-gradient-fill" x1="0" y1="0" x2="450" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EAD29A" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#C5A059" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#9E7A36" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+</svg>

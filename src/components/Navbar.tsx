@@ -45,12 +45,19 @@ export default function Navbar() {
     }
   }, [mobileMenuOpen]);
 
+  const isMenuPage = pathname === "/menu";
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || pathname === "/menu"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isMenuPage
+          ? isScrolled
+            ? "bg-white/95 backdrop-blur-md py-3.5 border-b border-stone-200 shadow-md"
+            : "bg-white/80 backdrop-blur-sm py-5 border-b border-stone-200/60"
+          : isScrolled
           ? "bg-stone-950/90 backdrop-blur-md py-4 border-b border-white/10 shadow-2xl"
           : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-6 sm:py-7"
-        }`}
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Left: Brand Logo Image */}
@@ -80,10 +87,15 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`relative text-[11px] font-medium tracking-[0.25em] transition-colors duration-300 py-1 ${isActive
+                className={`relative text-[11px] font-medium tracking-[0.25em] transition-colors duration-300 py-1 ${
+                  isMenuPage
+                    ? isActive
+                      ? "text-stone-900 font-bold"
+                      : "text-stone-700 hover:text-[#B38F4E]"
+                    : isActive
                     ? "text-white font-semibold"
                     : "text-neutral-300/80 hover:text-white"
-                  }`}
+                }`}
               >
                 {link.name}
                 {isActive && (
@@ -98,7 +110,11 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center">
           <Link
             href="/#contact"
-            className="group px-6 py-2.5 rounded-full border border-white/30 hover:border-[#C59E61] bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white hover:text-amber-200 text-[11px] font-medium tracking-[0.2em] uppercase transition-all duration-300 flex items-center space-x-2"
+            className={`group px-6 py-2.5 rounded-full border text-[11px] font-medium tracking-[0.2em] uppercase transition-all duration-300 flex items-center space-x-2 ${
+              isMenuPage
+                ? "border-stone-800 bg-stone-900 hover:bg-[#B38F4E] text-white hover:border-[#B38F4E] shadow-sm"
+                : "border-white/30 hover:border-[#C59E61] bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white hover:text-amber-200"
+            }`}
           >
             <span>RESERVE A TABLE</span>
             <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -113,7 +129,9 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle mobile menu"
           aria-expanded={mobileMenuOpen}
-          className="lg:hidden relative z-50 p-2 text-neutral-200 hover:text-amber-400 focus:outline-none transition-colors"
+          className={`lg:hidden relative z-50 p-2 focus:outline-none transition-colors ${
+            isMenuPage ? "text-stone-900 hover:text-[#B38F4E]" : "text-neutral-200 hover:text-amber-400"
+          }`}
         >
           <div className="w-6 h-5 flex flex-col justify-between items-center">
             <span

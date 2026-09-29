@@ -4,6 +4,7 @@
   :root {
     --font-serif: var(--font-cormorant), "Playfair Display", Georgia, serif;
     --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+    --font-cursive: var(--font-cursive), "Great Vibes", cursive;
   }
 }
 
@@ -13,6 +14,31 @@
 
 .font-sans {
   font-family: var(--font-sans);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+/* Lenis Smooth Scroll CSS Rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 /* Luxurious Metallic Gold Gradient for Text */

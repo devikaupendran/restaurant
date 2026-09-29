@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CulinaryExperience from "@/components/CulinaryExperience";
+import CuisineCategories from "@/components/CuisineCategories";
 import MenuBook from "@/components/menu-book";
 import GallerySection from "@/components/GallerySection";
 import Footer from "@/components/Footer";
@@ -19,10 +20,13 @@ export default function Home() {
         {/* Section 2: Why Dine With Grandeur / Culinary Experience */}
         <CulinaryExperience />
 
-        {/* Section 3: Interactive Menu Journal & Mobile Scroll Menu */}
+        {/* Section 3: Multicuisine Category Offerings */}
+        <CuisineCategories />
+
+        {/* Section 4: Interactive Menu Journal & Mobile Scroll Menu */}
         <MenuBook />
 
-        {/* Section 4: Bento Gallery & Rating Showcase */}
+        {/* Section 5: Bento Gallery & Rating Showcase */}
         <GallerySection />
       </main>
 
@@ -31,4 +35,3 @@ export default function Home() {
     </div>
   );
 }
-
