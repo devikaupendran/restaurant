@@ -60,6 +60,12 @@ const categories: Category[] = [
     subtitle: "Shakes, Juices & Mocktails",
     image: "/images/main-menu/beverages-main.png",
   },
+  {
+    id: "cakes",
+    title: "Cakes",
+    subtitle: "Artisanal Bakes & Desserts",
+    image: "/images/main-menu/cakes.png",
+  },
 ];
 
 const containerVariants: Variants = {
@@ -126,7 +132,7 @@ export default function CuisineCategories() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6"
         >
           {categories.map((cat, idx) => (
             <motion.div
@@ -136,7 +142,27 @@ export default function CuisineCategories() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <Link
-                href={cat.id === "breakfast" ? "/menu/breakfast" : "/menu"}
+                href={
+                  cat.id === "breakfast"
+                    ? "/menu/breakfast"
+                    : cat.id === "starters"
+                    ? "/menu/starters"
+                    : cat.id === "beverages"
+                    ? "/menu/beverages"
+                    : cat.id === "cakes"
+                    ? "/menu/cakes"
+                    : cat.id === "sea-food"
+                    ? "/menu/sea-food"
+                    : cat.id === "chinese"
+                    ? "/menu/chinese"
+                    : cat.id === "arabic"
+                    ? "/menu/arabic"
+                    : cat.id === "biriyani"
+                    ? "/menu/biriyani"
+                    : cat.id === "maincourse"
+                    ? "/menu/main-course"
+                    : "/menu"
+                }
                 className="group bg-[#F4EFE7] hover:bg-[#EFE9DF] rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center justify-between border border-[#E8DEC9]/60 hover:border-[#D9CBAE] transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer h-full"
               >
                 {/* Dish Image Container */}

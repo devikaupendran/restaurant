@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${jakarta.variable} ${greatVibes.variable} scroll-smooth dark`}
+      className={`${cormorant.variable} ${jakarta.variable} ${greatVibes.variable} dark`}
     >
       <body className="bg-[#0c0a09] text-neutral-100 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
         <SmoothScroll>

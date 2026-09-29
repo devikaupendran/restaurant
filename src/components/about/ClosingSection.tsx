@@ -33,13 +33,13 @@ export default function ClosingSection() {
           className="space-y-4"
         >
           <span className="text-amber-400 text-xs sm:text-sm font-semibold uppercase tracking-[0.4em] block">
-            AN INVITATION TO DINE
+            AN INVITATION TO EXPLORE
           </span>
           <h2 className="font-serif text-4xl sm:text-6xl font-normal text-white tracking-tight leading-tight">
-            "Your table is waiting."
+            "A Culinary Experience Awaits."
           </h2>
           <p className="text-stone-300 text-base sm:text-lg font-light leading-relaxed max-w-lg mx-auto">
-            Step into our warm dining room and let us craft an unforgettable multicuisine evening for you and your guests.
+            Step into our Parippally or Korani (Attingal) dining rooms and let us craft an unforgettable multicuisine experience for you.
           </p>
         </motion.div>
 
@@ -53,10 +53,10 @@ export default function ClosingSection() {
         >
           {/* Primary CTA */}
           <Link
-            href="/#contact"
+            href="/#branches"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#D4AF37] hover:bg-[#c3a02e] text-stone-950 font-semibold text-xs tracking-[0.25em] uppercase transition-all duration-300 shadow-xl shadow-amber-500/20 hover:scale-105"
           >
-            Reserve a Table →
+            Visit Our Branches →
           </Link>
 
           {/* Secondary CTA */}

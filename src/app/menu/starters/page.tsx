@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { motion } from "framer-motion";
 
 interface MenuItem {
@@ -81,6 +82,11 @@ export default function StartersMenuPage() {
         {/* ==================== HERO BANNER WITH PROPER TOP CLEARANCE ==================== */}
         <section className="relative pt-40 sm:pt-48 lg:pt-56 pb-12 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-gradient-to-b from-[#F3ECE0] via-[#F7F3EC] to-[#F7F3EC] flex items-center justify-between min-h-[460px] lg:min-h-[520px]">
           
+          {/* Back Button */}
+          <div className="absolute top-28 left-4 sm:left-8 lg:left-14 z-20">
+            <BackButton href="/menu" label="Back to Menu" />
+          </div>
+          
           {/* Left Floating Image: Spices & Chili Bowls (Positioned below navbar) */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -90,7 +96,7 @@ export default function StartersMenuPage() {
               opacity: { duration: 0.9 },
               y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
             }}
-            className="absolute -left-6 sm:left-0 top-[64%] -translate-y-1/2 w-[170px] sm:w-[240px] md:w-[300px] lg:w-[370px] xl:w-[410px] aspect-square flex-shrink-0 pointer-events-none z-0"
+            className="absolute left-0 sm:left-4 lg:left-8 xl:left-12 top-[60%] -translate-y-1/2 w-[140px] sm:w-[190px] md:w-[240px] lg:w-[280px] xl:w-[320px] aspect-square flex-shrink-0 pointer-events-none z-0"
           >
             <Image
               src="/images/starters/starters-main-banner-left.png"
@@ -145,7 +151,7 @@ export default function StartersMenuPage() {
               opacity: { duration: 0.9 },
               y: { repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.5 },
             }}
-            className="absolute -right-6 sm:right-0 top-[64%] -translate-y-1/2 w-[170px] sm:w-[240px] md:w-[300px] lg:w-[370px] xl:w-[410px] aspect-square flex-shrink-0 pointer-events-none z-0"
+            className="absolute right-0 sm:right-4 lg:right-8 xl:right-12 top-[60%] -translate-y-1/2 w-[140px] sm:w-[190px] md:w-[240px] lg:w-[280px] xl:w-[320px] aspect-square flex-shrink-0 pointer-events-none z-0"
           >
             <Image
               src="/images/starters/starters-main-banner-right.png"
@@ -167,7 +173,7 @@ export default function StartersMenuPage() {
             className="flex flex-col items-center justify-center"
           >
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mb-2" />
-            <p className="font-cursive text-3xl sm:text-4xl md:text-5xl text-[#9E7A36] font-normal leading-tight text-center px-4">
+            <p className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#9E7A36] font-normal leading-snug text-center px-4">
               "Indulge in Grandeur’s masterfully spiced appetizers, featuring tender glazed chicken, crisp wok-tossed bites, and sizzling specialties designed to spark an extraordinary dining journey."
             </p>
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mt-2" />

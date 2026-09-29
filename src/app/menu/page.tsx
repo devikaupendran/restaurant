@@ -30,37 +30,43 @@ const menuItems: MenuItem[] = [
     id: "biriyani",
     title: "Biriyani",
     image: "/images/main-menu/biriyani-main.png",
-    href: "/menu/breakfast",
+    href: "/menu/biriyani",
   },
   {
     id: "arabic",
     title: "Arabic",
     image: "/images/main-menu/arabic-main.png",
-    href: "/menu/breakfast",
+    href: "/menu/arabic",
   },
   {
     id: "maincourse",
     title: "Main Course",
     image: "/images/main-menu/maincourse-main.png",
-    href: "/menu/breakfast",
+    href: "/menu/main-course",
   },
   {
     id: "chinese",
     title: "Chinese",
     image: "/images/main-menu/chinese-main.png",
-    href: "/menu/breakfast",
+    href: "/menu/chinese",
   },
   {
     id: "sea-food",
     title: "Sea Food",
     image: "/images/main-menu/sea-food-main.png",
-    href: "/menu/breakfast",
+    href: "/menu/sea-food",
   },
   {
     id: "beverages",
     title: "Beverages",
     image: "/images/main-menu/beverages-main.png",
-    href: "/menu/breakfast",
+    href: "/menu/beverages",
+  },
+  {
+    id: "cakes",
+    title: "Cakes",
+    image: "/images/main-menu/cakes.png",
+    href: "/menu/cakes",
   },
 ];
 
@@ -138,7 +144,7 @@ export default function MenuPage() {
               <span className="h-[1px] w-8 sm:w-12 bg-[#B38F4E]/50" />
             </div>
             
-            <h1 className="font-cursive text-4xl sm:text-6xl md:text-7xl text-stone-900 leading-tight">
+            <h1 className="font-cursive text-3xl sm:text-5xl md:text-6xl text-stone-900 leading-tight">
               Our Main <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -191,7 +197,7 @@ export default function MenuPage() {
                   {/* Big Luxury Cursive Text right under the PNG image */}
                   <motion.h2
                     whileHover={{ scale: 1.04 }}
-                    className="font-cursive text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-900 group-hover:text-[#B38F4E] transition-colors leading-none tracking-wide pt-0"
+                    className="font-cursive text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-stone-900 group-hover:text-[#B38F4E] transition-colors leading-none tracking-wide pt-0"
                   >
                     {item.title}
                   </motion.h2>

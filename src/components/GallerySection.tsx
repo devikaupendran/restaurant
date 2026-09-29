@@ -1,68 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Anil M.",
-    role: "Food Critic & Dining Enthusiast",
-    rating: 5,
-    quote:
-      "Grandeur offers an unparalleled fine dining experience. The Arabian Al Faham, authentic Dum Biriyani, and warm hospitality make every family visit unforgettable!",
-    highlight: "Best Multicuisine Experience",
-  },
-  {
-    id: 2,
-    name: "Deepak S.",
-    role: "Local Gourmet Enthusiast",
-    rating: 5,
-    quote:
-      "Sensational multicuisine menu! From sizzling steaks to fresh Asian delicacies, every single dish is executed with supreme precision and authentic flavors.",
-    highlight: "Sensational Menu & Ambiance",
-  },
-  {
-    id: 3,
-    name: "Vishnu R.",
-    role: "Culinary Traveler",
-    rating: 5,
-    quote:
-      "Immaculate service, stunning interior ambiance, and incredible food quality. Hands down the finest multi-cuisine restaurant in the entire area!",
-    highlight: "Top-Notch Hospitality",
-  },
-  {
-    id: 4,
-    name: "Sreejith T.",
-    role: "Regular Diner & Guest",
-    rating: 5,
-    quote:
-      "A wide variety of mouth-watering collections with great customer support. If you are planning to enjoy authentic grill & dining, this is the ultimate destination.",
-    highlight: "Exceptional Taste & Variety",
-  },
-];
-
 export default function GallerySection() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-
-  // Auto-play testimonial carousel every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handlePrev = () => {
-    setActiveTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const current = testimonials[activeTestimonial];
-
   return (
     <section id="gallery" className="py-20 sm:py-24 bg-[#FAF7F2] text-stone-900 relative overflow-hidden border-t border-[#E5D8C3]/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -83,7 +23,7 @@ export default function GallerySection() {
           </p>
         </div>
 
-        {/* Asymmetric Distorted Bento Grid matching screenshot */}
+        {/* Asymmetric Distorted Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 items-stretch">
           
           {/* ─── COLUMN 1 (4 cols) ─────────────────────────────── */}
@@ -111,7 +51,7 @@ export default function GallerySection() {
             {/* 2. Image Slot 1: Tall Vertical 9:16 Portrait Image */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] min-h-[380px] flex-1 group">
               <Image
-                src="/images/culinary-experience-img.png"
+                src="/images/gallery/image4.jpg"
                 alt="Culinary Experience & Chef Artistry"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -133,7 +73,7 @@ export default function GallerySection() {
             {/* 3. Image Slot 2: Hero Dining Image with Play Button */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] min-h-[290px] group">
               <Image
-                src="/images/hero-fallback.jpg"
+                src="/images/gallery/image8.jpg"
                 alt="Grandeur Main Dining Atmosphere"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -158,7 +98,7 @@ export default function GallerySection() {
             {/* 4. Image Slot 3: Full-Bleed Authentic Biriyani & Cuisine Image */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] min-h-[310px] flex-1 group">
               <Image
-                src="/images/menu-biriyani.jpg"
+                src="/images/gallery/image7.jpg"
                 alt="Authentic Dum Biriyani Feast"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -178,9 +118,9 @@ export default function GallerySection() {
           {/* ─── COLUMN 3 (4 cols) ─────────────────────────────── */}
           <div className="lg:col-span-4 flex flex-col gap-5">
             {/* 5. Top Card: Sizzling Tandoor & Wagyu Steak Image */}
-            <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] h-[190px] group">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] min-h-[310px] flex-1 group">
               <Image
-                src="/images/wagyu-steak.jpg"
+                src="/images/gallery/image17.jpg"
                 alt="Sizzling Wagyu & Grill"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -190,84 +130,6 @@ export default function GallerySection() {
                 <h4 className="font-serif text-lg font-medium">
                   Sizzling Grills & Steaks
                 </h4>
-              </div>
-            </div>
-
-            {/* 6. Bottom Combined Slot: Testimonial Carousel Card */}
-            <div className="bg-stone-900 text-white rounded-[2rem] p-7 border border-stone-800 shadow-xl flex flex-col justify-between relative overflow-hidden flex-1 min-h-[420px]">
-              {/* Background Ambient Glow & Watermark */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 blur-3xl rounded-full pointer-events-none" />
-              <div className="absolute right-6 bottom-14 font-serif text-8xl text-amber-500/10 pointer-events-none select-none">
-                “
-              </div>
-
-              {/* Carousel Header & Star Rating */}
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-1 text-amber-400 text-lg">
-                    ★ ★ ★ ★ ★
-                  </div>
-                  <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
-                    GUEST REVIEWS
-                  </span>
-                </div>
-
-                {/* Highlight Badge */}
-                <h5 className="text-amber-400 font-serif italic text-sm mb-3">
-                  {current.highlight}
-                </h5>
-
-                {/* Testimonial Quote */}
-                <p className="text-stone-300 text-xs sm:text-sm font-light leading-relaxed mb-6 italic transition-all duration-300">
-                  &quot;{current.quote}&quot;
-                </p>
-              </div>
-
-              {/* Author Info & Navigation Controls */}
-              <div className="pt-4 border-t border-stone-800/80 flex items-center justify-between">
-                <div>
-                  <h5 className="font-serif text-base font-semibold text-white">
-                    {current.name}
-                  </h5>
-                  <span className="text-stone-400 text-[11px] font-light uppercase tracking-wider block">
-                    {current.role}
-                  </span>
-                </div>
-
-                {/* Navigation Buttons & Indicators */}
-                <div className="flex items-center space-x-3">
-                  {/* Dot Indicators */}
-                  <div className="flex items-center space-x-1.5 mr-2">
-                    {testimonials.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveTestimonial(idx)}
-                        className={`h-1.5 rounded-full transition-all duration-300 ${
-                          idx === activeTestimonial ? "w-5 bg-amber-400" : "w-1.5 bg-stone-700"
-                        }`}
-                        aria-label={`Go to slide ${idx + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Previous Button */}
-                  <button
-                    onClick={handlePrev}
-                    className="w-8 h-8 rounded-full bg-stone-800 hover:bg-amber-500 hover:text-stone-950 text-stone-300 transition-colors flex items-center justify-center text-sm"
-                    aria-label="Previous review"
-                  >
-                    ←
-                  </button>
-
-                  {/* Next Button */}
-                  <button
-                    onClick={handleNext}
-                    className="w-8 h-8 rounded-full bg-stone-800 hover:bg-amber-500 hover:text-stone-950 text-stone-300 transition-colors flex items-center justify-center text-sm"
-                    aria-label="Next review"
-                  >
-                    →
-                  </button>
-                </div>
               </div>
             </div>
 

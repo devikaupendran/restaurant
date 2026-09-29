@@ -43,14 +43,13 @@ export default function Hero() {
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {/* Fallback Image */}
         <Image
-          src="/images/hero-fallback.jpg"
-          alt="Grandeur Multicuisine Fine Dining Ambiance"
+          src="/images/gallery/korani-shop.jpg"
+          alt="Grandeur Multicuisine Restaurant - Korani"
           fill
           priority
           sizes="100vw"
-          className={`object-cover object-center transition-opacity duration-1000 ${
-            videoLoaded && !videoError ? "opacity-0" : "opacity-100 scale-105"
-          }`}
+          className={`object-cover object-center transition-opacity duration-1000 ${videoLoaded && !videoError ? "opacity-0" : "opacity-100 scale-105"
+            }`}
         />
 
         {/* Video Element */}
@@ -61,20 +60,18 @@ export default function Hero() {
             loop
             muted
             playsInline
+            poster="/images/gallery/korani-shop.jpg"
             onLoadedData={() => setVideoLoaded(true)}
             onError={() => setVideoError(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              videoLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"
+              }`}
           >
             <source src="/videos/hero-video.MP4" type="video/mp4" />
-            <source src="/videos/restaurant-hero.mp4" type="video/mp4" />
           </video>
         )}
 
-        {/* Cinematic Dark Gradient Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-950/40 z-10" />
-        <div className="absolute inset-0 bg-black/40 backdrop-brightness-95 z-10" />
+        {/* Balanced Ambient Overlay with refined contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/45 to-black/65 z-10" />
       </div>
 
       {/* Hero Content Container */}
@@ -100,14 +97,14 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="flex flex-col items-center leading-tight mb-6"
         >
-          <span className="font-serif text-5xl sm:text-7xl md:text-8xl text-[#FAF6F0] font-normal tracking-tight drop-shadow-md">
+          <span className="font-serif text-5xl sm:text-7xl md:text-8xl text-[#FAF6F0] font-normal tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
             Mastery of
           </span>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-serif italic text-6xl sm:text-8xl md:text-9xl text-gold-champagne font-normal tracking-tight -mt-2 sm:-mt-4 drop-shadow-lg"
+            className="font-serif italic text-6xl sm:text-8xl md:text-9xl text-gold-champagne font-normal tracking-tight -mt-2 sm:-mt-4 drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)]"
           >
             Global Flavors
           </motion.span>
@@ -118,7 +115,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-xl text-neutral-300/90 text-sm sm:text-base font-light leading-relaxed mb-10 text-center drop-shadow"
+          className="max-w-xl text-neutral-100 text-sm sm:text-base font-light leading-relaxed mb-10 text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
         >
           Immerse yourself in an extraordinary culinary journey where centuries-old multi-cuisine traditions meet modern gastronomy, handcrafted with passion and precision.
         </motion.p>
