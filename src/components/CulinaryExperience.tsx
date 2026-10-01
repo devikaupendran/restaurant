@@ -55,7 +55,7 @@ export default function CulinaryExperience() {
               </svg>
             </div>
             <h3 className="font-serif text-2xl font-normal text-stone-900 mb-2">Exquisite Menu</h3>
-            <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               A curated selection of global flavors, crafted with the finest ingredients by expert chefs.
             </p>
           </motion.div>
@@ -69,7 +69,7 @@ export default function CulinaryExperience() {
               </svg>
             </div>
             <h3 className="font-serif text-2xl font-normal text-stone-900 mb-2">Fresh Ingredients</h3>
-            <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               Sourced locally and globally to ensure unmatched taste and quality in every dish.
             </p>
           </motion.div>
@@ -115,7 +115,7 @@ export default function CulinaryExperience() {
               </svg>
             </div>
             <h3 className="font-serif text-2xl font-normal text-stone-900 mb-2">Exceptional Service</h3>
-            <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               Our team is dedicated to making your dining experience seamless and unforgettable.
             </p>
           </motion.div>
@@ -128,7 +128,7 @@ export default function CulinaryExperience() {
               </svg>
             </div>
             <h3 className="font-serif text-2xl font-normal text-stone-900 mb-2">Elegant Ambience</h3>
-            <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               A sophisticated setting designed to elevate every meal, from casual dining to special celebrations.
             </p>
           </motion.div>

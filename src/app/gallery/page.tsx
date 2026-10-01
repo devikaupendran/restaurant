@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 /* ─── Gallery Image Data ─────────────────────────────────────────────── */
 interface GalleryImage {
@@ -76,6 +76,24 @@ function Lightbox({
   onPrev: () => void;
   onNext: () => void;
 }) {
+  // Lock body scroll and enable keyboard navigation (Esc, ArrowLeft, ArrowRight)
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onPrev();
+      if (e.key === "ArrowRight") onNext();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose, onPrev, onNext]);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -88,7 +106,7 @@ function Lightbox({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 sm:top-8 sm:right-8 z-[110] w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+          className="absolute top-5 right-5 sm:top-8 sm:right-8 z-[110] w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-300 cursor-pointer"
           aria-label="Close lightbox"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -99,10 +117,10 @@ function Lightbox({
         {/* Previous Button */}
         <button
           onClick={(e) => { e.stopPropagation(); onPrev(); }}
-          className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+          className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/25 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg"
           aria-label="Previous image"
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -110,38 +128,37 @@ function Lightbox({
         {/* Next Button */}
         <button
           onClick={(e) => { e.stopPropagation(); onNext(); }}
-          className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+          className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/25 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg"
           aria-label="Next image"
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
-        {/* Image */}
+        {/* Image Container with explicit responsive height for Next.js Image fill */}
         <motion.div
           key={image.src}
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.92 }}
-          transition={{ duration: 0.3 }}
-          className="relative w-full max-w-5xl max-h-[85vh] aspect-auto"
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.25 }}
+          className="relative w-full max-w-5xl h-[65vh] sm:h-[75vh] md:h-[80vh] flex items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
           <Image
             src={image.src}
             alt={image.alt}
             fill
-            sizes="(max-width: 768px) 100vw, 80vw"
-            className="object-contain rounded-2xl"
+            sizes="(max-width: 768px) 100vw, 85vw"
+            className="object-contain drop-shadow-2xl select-none"
             priority
           />
         </motion.div>
 
-        {/* Caption & Counter */}
-        <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 text-center z-[110]">
-          <p className="text-white/90 font-serif text-lg sm:text-xl">{image.alt}</p>
-          <span className="text-white/40 text-xs mt-1 block">
+        {/* Counter */}
+        <div className="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 text-center z-[110] px-4 pointer-events-none">
+          <span className="text-white/70 text-xs font-semibold tracking-widest px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
             {currentIdx + 1} / {images.length}
           </span>
         </div>
@@ -219,7 +236,7 @@ export default function GalleryPage() {
                 Our <span className="italic text-[#C59E61]">Gallery</span>
               </h1>
 
-              <p className="text-stone-300 text-sm sm:text-base font-light leading-relaxed max-w-lg">
+              <p className="text-stone-200 text-sm sm:text-base font-normal leading-relaxed max-w-lg">
                 A curated collection of moments — from the artistry of our chefs to the elegance of our dining spaces and the warmth of celebrations shared within our walls.
               </p>
 
@@ -227,17 +244,17 @@ export default function GalleryPage() {
               <div className="flex items-center gap-6 sm:gap-10 mt-6 pt-6 border-t border-white/15">
                 <div>
                   <span className="font-serif text-2xl sm:text-3xl font-bold text-white">{koraniImages.length + paripallyImages.length}+</span>
-                  <span className="block text-stone-400 text-[10px] sm:text-xs uppercase tracking-wider mt-1">Photos</span>
+                  <span className="block text-stone-300 text-xs sm:text-xs font-medium uppercase tracking-wider mt-1">Photos</span>
                 </div>
                 <div className="w-px h-10 bg-white/15" />
                 <div>
                   <span className="font-serif text-2xl sm:text-3xl font-bold text-white">2</span>
-                  <span className="block text-stone-400 text-[10px] sm:text-xs uppercase tracking-wider mt-1">Branches</span>
+                  <span className="block text-stone-300 text-xs sm:text-xs font-medium uppercase tracking-wider mt-1">Branches</span>
                 </div>
                 <div className="w-px h-10 bg-white/15" />
                 <div>
                   <span className="font-serif text-2xl sm:text-3xl font-bold text-white">∞</span>
-                  <span className="block text-stone-400 text-[10px] sm:text-xs uppercase tracking-wider mt-1">Memories</span>
+                  <span className="block text-stone-300 text-xs sm:text-xs font-medium uppercase tracking-wider mt-1">Memories</span>
                 </div>
               </div>
             </div>
@@ -255,10 +272,10 @@ export default function GalleryPage() {
             <button
               key={tab.key}
               onClick={() => { setActiveTab(tab.key); setLightboxIdx(null); }}
-              className={`relative px-6 sm:px-10 py-3.5 sm:py-4 rounded-2xl text-center transition-all duration-400 border ${
+              className={`relative px-6 sm:px-10 py-3.5 sm:py-4 rounded-2xl text-center transition-all duration-400 border cursor-pointer ${
                 activeTab === tab.key
                   ? "bg-[#1C1814] text-white border-[#C59E61]/40 shadow-xl shadow-black/10"
-                  : "bg-white text-stone-600 border-stone-200/80 hover:border-[#B38F4E]/50 hover:text-[#B38F4E] shadow-sm"
+                  : "bg-white text-stone-700 border-stone-200/80 hover:border-[#B38F4E]/50 hover:text-[#B38F4E] shadow-sm"
               }`}
             >
               <span className={`block text-xs sm:text-sm font-bold uppercase tracking-wider ${
@@ -266,9 +283,7 @@ export default function GalleryPage() {
               }`}>
                 {tab.label}
               </span>
-              <span className={`block text-[10px] sm:text-xs mt-0.5 font-light ${
-                activeTab === tab.key ? "text-stone-400" : "text-stone-400"
-              }`}>
+              <span className="block text-xs mt-0.5 font-medium text-stone-400">
                 {tab.subtitle} · {tab.key === "korani" ? koraniImages.length : paripallyImages.length} photos
               </span>
 
@@ -318,14 +333,7 @@ export default function GalleryPage() {
                 />
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Hover Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <h3 className="font-serif text-base sm:text-lg text-white font-normal leading-snug">
-                    {image.alt}
-                  </h3>
-                </div>
+                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Expand Icon (top right on hover) */}
                 <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
@@ -346,20 +354,20 @@ export default function GalleryPage() {
           transition={{ duration: 0.7 }}
           className="text-center pt-6"
         >
-          <p className="text-stone-500 text-sm font-light mb-5 max-w-md mx-auto">
+          <p className="text-stone-700 text-sm sm:text-base font-normal mb-5 max-w-md mx-auto">
             Every dish, every corner, and every moment at Grandeur is crafted to perfection. Experience it in person.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="/menu"
-              className="inline-flex items-center space-x-2.5 px-8 py-3.5 rounded-full bg-[#1C1814] hover:bg-stone-800 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs uppercase tracking-[0.2em] shadow-md hover:shadow-lg transition-all duration-300"
+              className="inline-flex items-center space-x-2.5 px-8 py-3.5 rounded-full bg-[#1C1814] hover:bg-stone-800 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs sm:text-sm uppercase tracking-[0.2em] shadow-md hover:shadow-lg transition-all duration-300"
             >
               <span>Explore Our Menu</span>
               <span className="text-sm">→</span>
             </a>
             <a
               href="/branches"
-              className="inline-flex items-center space-x-2.5 px-8 py-3.5 rounded-full bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 font-bold text-xs uppercase tracking-[0.2em] shadow-sm hover:shadow-md transition-all duration-300"
+              className="inline-flex items-center space-x-2.5 px-8 py-3.5 rounded-full bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 font-bold text-xs sm:text-sm uppercase tracking-[0.2em] shadow-sm hover:shadow-md transition-all duration-300"
             >
               <span>Visit Our Branches</span>
               <span className="text-sm">→</span>

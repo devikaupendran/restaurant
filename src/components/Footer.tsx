@@ -89,13 +89,13 @@ export default function Footer() {
             
             {/* Parippally Branch */}
             <div>
-              <span className="text-[10px] font-bold text-[#B38F4E] uppercase tracking-[0.25em] block mb-2">
+              <span className="text-xs font-bold text-[#B38F4E] uppercase tracking-[0.25em] block mb-2">
                 PARIPPALLY BRANCH
               </span>
-              <p className="text-xs sm:text-sm text-stone-200 font-light leading-relaxed">
+              <p className="text-sm text-stone-200 font-normal leading-relaxed">
                 N.H. 47, Parippally, Kerala 691574
               </p>
-              <p className="text-xs text-stone-400 font-normal mt-1.5 flex items-center space-x-1">
+              <p className="text-sm text-stone-300 font-normal mt-1.5 flex items-center space-x-1">
                 <span className="text-[#B38F4E] font-medium">Timings:</span>
                 <span>8:30 AM – 10:30 PM</span>
               </p>
@@ -103,13 +103,13 @@ export default function Footer() {
 
             {/* Korani (Attingal) Branch */}
             <div>
-              <span className="text-[10px] font-bold text-[#B38F4E] uppercase tracking-[0.25em] block mb-2">
+              <span className="text-xs font-bold text-[#B38F4E] uppercase tracking-[0.25em] block mb-2">
                 KORANI (ATTINGAL) BRANCH
               </span>
-              <p className="text-xs sm:text-sm text-stone-200 font-light leading-relaxed">
+              <p className="text-sm text-stone-200 font-normal leading-relaxed">
                 Korani, Attingal, Kerala 695104
               </p>
-              <p className="text-xs text-stone-400 font-normal mt-1.5 flex items-center space-x-1">
+              <p className="text-sm text-stone-300 font-normal mt-1.5 flex items-center space-x-1">
                 <span className="text-[#B38F4E] font-medium">Timings:</span>
                 <span>8:00 AM – 11:00 PM</span>
               </p>
@@ -117,20 +117,20 @@ export default function Footer() {
 
             {/* Call Us */}
             <div>
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.25em] block mb-2">
+              <span className="text-xs font-bold text-stone-400 uppercase tracking-[0.25em] block mb-2">
                 CALL US
               </span>
-              <p className="text-xs sm:text-sm text-stone-200 font-light leading-relaxed">
+              <p className="text-sm text-stone-200 font-normal leading-relaxed">
                 +91 89436 67000
               </p>
             </div>
 
             {/* Contact Us */}
             <div>
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.25em] block mb-2">
+              <span className="text-xs font-bold text-stone-400 uppercase tracking-[0.25em] block mb-2">
                 CONTACT US
               </span>
-              <p className="text-xs sm:text-sm text-stone-200 font-light leading-relaxed">
+              <p className="text-sm text-stone-200 font-normal leading-relaxed">
                 concierge@grandeur-restaurant.com
               </p>
             </div>
@@ -143,10 +143,10 @@ export default function Footer() {
           
           {/* Column 1: Navigation */}
           <div>
-            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.25em] block mb-4">
+            <span className="text-xs font-bold text-stone-400 uppercase tracking-[0.25em] block mb-4">
               NAVIGATION
             </span>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-stone-300 font-light">
+            <ul className="space-y-2.5 text-sm text-stone-300 font-normal">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Home
@@ -187,10 +187,10 @@ export default function Footer() {
 
           {/* Column 2: Our Cuisines */}
           <div>
-            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.25em] block mb-4">
+            <span className="text-xs font-bold text-stone-400 uppercase tracking-[0.25em] block mb-4">
               OUR CUISINES
             </span>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-stone-300 font-light">
+            <ul className="space-y-2.5 text-sm text-stone-300 font-normal">
               <li>
                 <Link href="/menu/arabic" className="hover:text-white transition-colors">
                   Arabic Specialties
@@ -226,15 +226,15 @@ export default function Footer() {
 
           {/* Column 3: Fine Dining Experience */}
           <div>
-            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.25em] block mb-4">
+            <span className="text-xs font-bold text-stone-400 uppercase tracking-[0.25em] block mb-4">
               FINE DINING EXPERIENCE
             </span>
-            <p className="text-xs sm:text-sm text-stone-300 font-light leading-relaxed max-w-xs mb-4">
+            <p className="text-sm text-stone-300 font-normal leading-relaxed max-w-xs mb-4">
               Visit our restaurant branches to relish authentic multicuisine delicacies and warm hospitality.
             </p>
             <Link
               href="/branches#contact"
-              className="inline-flex items-center text-xs text-[#B38F4E] hover:text-[#d4aa5d] font-medium tracking-wide transition-colors"
+              className="inline-flex items-center text-sm text-[#B38F4E] hover:text-[#d4aa5d] font-semibold tracking-wide transition-colors"
             >
               <span>Reserve a Table</span>
               <span className="ml-1.5">→</span>
@@ -244,7 +244,7 @@ export default function Footer() {
         </div>
 
         {/* ==================== BOTTOM BAR ==================== */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-400 space-y-3 sm:space-y-0">
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 space-y-3 sm:space-y-0">
           <Link href="/terms-of-service" className="hover:text-white transition-colors">
             Terms of Service
           </Link>

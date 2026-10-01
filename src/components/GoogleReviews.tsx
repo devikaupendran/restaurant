@@ -291,7 +291,7 @@ export default function GoogleReviews({
                             <h3 className="font-serif text-base font-bold text-stone-900 tracking-tight leading-none">
                               {review.authorName}
                             </h3>
-                            <span className="text-[11px] text-stone-400 font-light mt-1 block">
+                            <span className="text-xs text-stone-500 font-medium mt-1 block">
                               {review.relativeTime}
                             </span>
                           </div>
@@ -331,14 +331,14 @@ export default function GoogleReviews({
                       </div>
 
                       {/* Review Text Quote */}
-                      <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed line-clamp-5 italic">
+                      <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed line-clamp-5 italic">
                         &ldquo;{review.text}&rdquo;
                       </p>
                     </div>
 
                     {/* Attribution Footer */}
-                    <div className="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between text-[11px]">
-                      <span className="text-stone-400 font-medium">
+                    <div className="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                      <span className="text-stone-500 font-medium">
                         Verified Google Review
                       </span>
                       <a

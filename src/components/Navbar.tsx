@@ -221,7 +221,7 @@ export default function Navbar() {
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#B38F4E]/15 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 flex flex-col items-center space-y-6 text-center max-w-sm mx-auto w-full">
-              <span className="text-[10px] font-bold text-[#B38F4E] tracking-[0.35em] uppercase border-b border-[#B38F4E]/30 pb-2 mb-2 w-full text-center">
+              <span className="text-xs font-bold text-[#B38F4E] tracking-[0.35em] uppercase border-b border-[#B38F4E]/30 pb-2 mb-2 w-full text-center">
                 NAVIGATION
               </span>
 
@@ -256,7 +256,7 @@ export default function Navbar() {
                 <Link
                   href="/menu"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full inline-flex items-center justify-center space-x-2 py-3.5 px-6 rounded-full bg-gradient-to-r from-[#B38F4E] to-[#D4AF37] text-stone-950 font-bold text-xs tracking-[0.2em] uppercase shadow-lg"
+                  className="w-full inline-flex items-center justify-center space-x-2 py-3.5 px-6 rounded-full bg-gradient-to-r from-[#B38F4E] to-[#D4AF37] text-stone-950 font-bold text-xs sm:text-sm tracking-[0.2em] uppercase shadow-lg"
                 >
                   <span>EXPLORE MENU</span>
                   <span>→</span>
@@ -264,7 +264,7 @@ export default function Navbar() {
 
                 <a
                   href="tel:08943667000"
-                  className="w-full inline-flex items-center justify-center space-x-2 py-3 px-6 rounded-full border border-white/20 text-stone-300 text-xs tracking-wider"
+                  className="w-full inline-flex items-center justify-center space-x-2 py-3 px-6 rounded-full border border-white/20 text-stone-200 text-xs sm:text-sm font-semibold tracking-wider hover:border-[#B38F4E] transition-colors"
                 >
                   <svg
                     className="w-4 h-4 text-[#B38F4E]"
@@ -285,7 +285,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Footer Note */}
-            <div className="relative z-10 text-center text-stone-500 text-[11px] uppercase tracking-widest pt-8 border-t border-white/10">
+            <div className="relative z-10 text-center text-stone-400 text-xs font-medium uppercase tracking-widest pt-8 border-t border-white/10">
               Parippally & Korani (Attingal) Branches
             </div>
           </motion.div>

@@ -208,7 +208,7 @@ export default function MobileMenuScroll() {
                     <span className="font-serif text-lg font-semibold text-stone-900 pr-2">
                       {item.name}
                     </span>
-                    <span className="font-sans text-sm font-bold text-[#B38F4E] whitespace-nowrap">
+                    <span className="font-sans text-base font-bold text-[#B38F4E] whitespace-nowrap">
                       {item.price === "APS" ? "APS" : typeof item.price === "number" ? `₹${item.price}` : `₹${item.price}`}
                     </span>
                   </div>
@@ -217,7 +217,7 @@ export default function MobileMenuScroll() {
             </div>
 
             {/* Swipe Indicator Footer */}
-            <div className="pt-5 mt-4 border-t border-[#E8DEC9]/60 flex items-center justify-between text-[11px] text-stone-500 uppercase tracking-widest">
+            <div className="pt-5 mt-4 border-t border-[#E8DEC9]/60 flex items-center justify-between text-xs text-stone-600 font-semibold uppercase tracking-widest">
               <span>Swipe for More</span>
               <span className="text-[#B38F4E]">→</span>
             </div>

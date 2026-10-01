@@ -182,10 +182,10 @@ export default function CuisineCategories() {
 
                 {/* Title & Subtitle */}
                 <div className="flex flex-col items-center">
-                  <h3 className="font-serif text-sm sm:text-base font-semibold text-stone-900 mb-0.5 group-hover:text-[#B38F4E] transition-colors leading-tight">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold text-stone-900 mb-0.5 group-hover:text-[#B38F4E] transition-colors leading-tight">
                     {cat.title}
                   </h3>
-                  <span className="text-stone-500 text-[10px] font-light tracking-wide line-clamp-1">
+                  <span className="text-stone-600 text-xs sm:text-xs font-normal tracking-wide line-clamp-1">
                     {cat.subtitle}
                   </span>
                 </div>

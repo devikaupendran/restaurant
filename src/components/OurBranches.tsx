@@ -107,7 +107,7 @@ export default function OurBranches() {
                       <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1C1814] tracking-tight leading-snug">
                         {branch.name}
                       </h3>
-                      <p className="text-stone-500 text-xs font-light mt-1 leading-relaxed">
+                      <p className="text-stone-600 text-xs sm:text-sm font-normal mt-1 leading-relaxed">
                         {branch.address}
                       </p>
                     </div>
@@ -116,9 +116,9 @@ export default function OurBranches() {
                   <div className="h-[1px] w-full bg-stone-100 my-2" />
 
                   {/* Details Bullet List */}
-                  <div className="space-y-2.5 text-xs text-stone-600 font-light">
+                  <div className="space-y-2.5 text-xs sm:text-sm text-stone-700 font-medium">
                     <div className="flex items-center space-x-2.5">
-                      <svg className="w-4 h-4 text-stone-400 flex-shrink-0 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2">
+                      <svg className="w-4 h-4 text-[#B38F4E] flex-shrink-0 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2">
                         <circle cx="12" cy="12" r="9" />
                         <path d="M12 6v6l4 2" />
                       </svg>
@@ -126,14 +126,14 @@ export default function OurBranches() {
                     </div>
 
                     <div className="flex items-center space-x-2.5">
-                      <svg className="w-4 h-4 text-stone-400 flex-shrink-0 fill-current" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[#B38F4E] flex-shrink-0 fill-current" viewBox="0 0 24 24">
                         <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.27 1.11l-2.37 2.4z" />
                       </svg>
                       <span>{branch.phone}</span>
                     </div>
 
                     <div className="flex items-center space-x-2.5">
-                      <svg className="w-4 h-4 text-stone-400 flex-shrink-0 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2">
+                      <svg className="w-4 h-4 text-[#B38F4E] flex-shrink-0 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                         <polyline points="9 22 9 12 15 12 15 22" />
                       </svg>

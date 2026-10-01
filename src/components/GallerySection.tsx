@@ -18,7 +18,7 @@ export default function GallerySection() {
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mb-3">
             Culinary <span className="font-serif italic text-[#B38F4E]">Gallery</span>
           </h2>
-          <p className="text-stone-600 text-xs sm:text-sm font-light tracking-wide max-w-md mx-auto">
+          <p className="text-stone-700 text-sm sm:text-base font-normal tracking-wide max-w-md mx-auto">
             Explore our multicuisine creations, luxurious ambiance, and top-rated dining moments.
           </p>
         </div>
@@ -37,7 +37,7 @@ export default function GallerySection() {
                 <h3 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-3 tracking-tight">
                   4.9 <span className="text-stone-400 font-light text-2xl sm:text-3xl">/ 5.0</span>
                 </h3>
-                <p className="text-stone-600 text-xs sm:text-sm leading-relaxed font-light pr-6">
+                <p className="text-stone-700 text-sm sm:text-base leading-relaxed font-normal pr-6">
                   Customer satisfaction is our top priority. We are committed to providing quality products, reliable service, and the best value for every customer.
                 </p>
               </div>
@@ -56,15 +56,7 @@ export default function GallerySection() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-amber-300 text-[10px] font-semibold uppercase tracking-[0.25em] block mb-1">
-                  EXCELLENCE & ARTISTRY
-                </span>
-                <h4 className="font-serif text-xl font-normal">
-                  Master Chefs at Work
-                </h4>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
 
@@ -73,25 +65,16 @@ export default function GallerySection() {
             {/* 3. Image Slot 2: Hero Dining Image with Play Button */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] min-h-[290px] group">
               <Image
-                src="/images/gallery/image8.jpg"
+                src="/images/gallery/paripally-image8.webp"
                 alt="Grandeur Main Dining Atmosphere"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Play Button Overlay */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/95 text-stone-900 shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 cursor-pointer">
                 <span className="text-base ml-1 text-stone-900">▶</span>
-              </div>
-
-              <div className="absolute bottom-5 left-6 right-6 text-white">
-                <h4 className="font-serif text-xl font-medium mb-0.5">
-                  Grandeur Multicuisine
-                </h4>
-                <p className="text-amber-200/90 text-xs font-light tracking-wide">
-                  Luxury Dining Room & Ambiance
-                </p>
               </div>
             </div>
 
@@ -103,15 +86,7 @@ export default function GallerySection() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-amber-300 text-[10px] font-semibold uppercase tracking-[0.25em] block mb-1">
-                  SIGNATURE DELICACY
-                </span>
-                <h4 className="font-serif text-xl font-normal">
-                  Authentic Dum Biriyani & Spices
-                </h4>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
 
@@ -120,17 +95,12 @@ export default function GallerySection() {
             {/* 5. Top Card: Sizzling Tandoor & Wagyu Steak Image */}
             <div className="relative rounded-[2rem] overflow-hidden shadow-lg border border-[#E8DEC9] min-h-[310px] flex-1 group">
               <Image
-                src="/images/gallery/image17.jpg"
-                alt="Sizzling Wagyu & Grill"
+                src="/images/gallery/paripally-image6.webp"
+                alt="Grandeur Dining Area & Atmosphere"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-4 left-5 right-5 text-white">
-                <h4 className="font-serif text-lg font-medium">
-                  Sizzling Grills & Steaks
-                </h4>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
           </div>

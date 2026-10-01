@@ -9,6 +9,7 @@ import { motion, Variants } from "framer-motion";
 interface MenuItem {
   id: string;
   title: string;
+  subtitle: string;
   image: string;
   href: string;
 }
@@ -17,54 +18,63 @@ const menuItems: MenuItem[] = [
   {
     id: "breakfast",
     title: "Breakfast",
+    subtitle: "Appam, Porotta, Dosas & Breads",
     image: "/images/main-menu/breakfast-main.png",
     href: "/menu/breakfast",
   },
   {
     id: "starters",
     title: "Starters",
+    subtitle: "Crispy Appetizers & Tandoori Platters",
     image: "/images/main-menu/starters-main.png",
     href: "/menu/starters",
   },
   {
     id: "biriyani",
     title: "Biriyani",
+    subtitle: "Aromatic Dum Biriyani & Fragrant Rice",
     image: "/images/main-menu/biriyani-main.png",
     href: "/menu/biriyani",
   },
   {
     id: "arabic",
     title: "Arabic",
+    subtitle: "Authentic Mandi, Shawarma & Grills",
     image: "/images/main-menu/arabic-main.png",
     href: "/menu/arabic",
   },
   {
     id: "maincourse",
     title: "Main Course",
+    subtitle: "Rich Curries, Gravies & Breads",
     image: "/images/main-menu/maincourse-main.png",
     href: "/menu/main-course",
   },
   {
     id: "chinese",
     title: "Chinese",
+    subtitle: "Wok Tossed Noodles, Rice & Sizzlers",
     image: "/images/main-menu/chinese-main.png",
     href: "/menu/chinese",
   },
   {
     id: "sea-food",
     title: "Sea Food",
+    subtitle: "Fresh Fish, Prawns & Coastal Catch",
     image: "/images/main-menu/sea-food-main.png",
     href: "/menu/sea-food",
   },
   {
     id: "beverages",
     title: "Beverages",
+    subtitle: "Fresh Juices, Mocktails & Shakes",
     image: "/images/main-menu/beverages-main.png",
     href: "/menu/beverages",
   },
   {
     id: "cakes",
     title: "Cakes",
+    subtitle: "Artisan Pastries & Gourmet Desserts",
     image: "/images/main-menu/cakes.png",
     href: "/menu/cakes",
   },
@@ -144,7 +154,7 @@ export default function MenuPage() {
               <span className="h-[1px] w-8 sm:w-12 bg-[#B38F4E]/50" />
             </div>
             
-            <h1 className="font-cursive text-3xl sm:text-5xl md:text-6xl text-stone-900 leading-tight">
+            <h1 className="font-cursive text-4xl sm:text-5xl md:text-6xl text-stone-900 leading-tight">
               Our Main <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -154,6 +164,9 @@ export default function MenuPage() {
                 Categories
               </motion.span>
             </h1>
+            <p className="text-stone-600 text-sm sm:text-base mt-2 font-normal tracking-wide max-w-md mx-auto">
+              Select any category to explore authentic dishes and specialties
+            </p>
           </motion.div>
 
           {/* Animated Category Grid */}
@@ -161,7 +174,7 @@ export default function MenuPage() {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 items-center"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-12 items-center"
           >
             {menuItems.map((item, index) => (
               <motion.div
@@ -182,25 +195,48 @@ export default function MenuPage() {
                       duration: 3.5 + (index % 3) * 0.5,
                       delay: index * 0.2,
                     }}
-                    className="relative w-full aspect-square overflow-hidden mb-1"
+                    className="relative w-full aspect-square overflow-hidden mb-2 max-w-[340px] sm:max-w-none"
                   >
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                      className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.06)]"
                       priority={index < 3}
                     />
                   </motion.div>
 
-                  {/* Big Luxury Cursive Text right under the PNG image */}
+                  {/* Big Luxury Cursive Text right under the PNG image - enlarged for mobile readability */}
                   <motion.h2
                     whileHover={{ scale: 1.04 }}
-                    className="font-cursive text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-stone-900 group-hover:text-[#B38F4E] transition-colors leading-none tracking-wide pt-0"
+                    className="font-cursive text-4xl sm:text-4xl md:text-5xl lg:text-5xl text-stone-900 group-hover:text-[#B38F4E] transition-colors leading-none tracking-wide pt-1"
                   >
                     {item.title}
                   </motion.h2>
+
+                  {/* Subtitle denoting the data & dishes - clear and readable on mobile */}
+                  <p className="text-sm sm:text-base text-stone-700 font-medium tracking-wide mt-2 px-2 line-clamp-1 group-hover:text-stone-900 transition-colors">
+                    {item.subtitle}
+                  </p>
+
+                  {/* Interactive 'View Menu' Callout Pill with Animated Arrow */}
+                  <div className="mt-4 inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-4 sm:py-1.5 rounded-full text-xs font-bold tracking-[0.18em] uppercase text-stone-800 bg-white border border-[#B38F4E]/40 shadow-sm group-hover:bg-[#1C1814] group-hover:text-amber-200 group-hover:border-[#1C1814] group-hover:shadow-md transition-all duration-300">
+                    <span className="text-xs">View Menu</span>
+                    <svg
+                      className="w-4 h-4 text-[#B38F4E] group-hover:text-amber-300 transform group-hover:translate-x-1.5 transition-transform duration-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2.5"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </div>
                 </Link>
               </motion.div>
             ))}

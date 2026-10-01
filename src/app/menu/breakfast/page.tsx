@@ -13,6 +13,7 @@ interface MenuItem {
 
 interface MenuSectionData {
   number: string;
+  categoryTag?: string;
   title: string;
   subtitle: string;
   items: MenuItem[];
@@ -24,6 +25,7 @@ interface MenuSectionData {
 const breakfastSections: MenuSectionData[] = [
   {
     number: "01",
+    categoryTag: "AUTHENTIC KERALA",
     title: "TRADITIONAL BREAKFAST",
     subtitle: "Authentic flavours to make your mornings special.",
     items: [
@@ -40,6 +42,7 @@ const breakfastSections: MenuSectionData[] = [
   },
   {
     number: "02",
+    categoryTag: "TANDOORI & OVEN",
     title: "BREAD VARIETIES",
     subtitle: "Soft, flaky and freshly prepared breads for every taste.",
     items: [
@@ -57,6 +60,7 @@ const breakfastSections: MenuSectionData[] = [
   },
   {
     number: "03",
+    categoryTag: "MORNING PROTEIN",
     title: "EGG SPECIALS",
     subtitle: "Simple, classic and always satisfying.",
     items: [
@@ -70,6 +74,7 @@ const breakfastSections: MenuSectionData[] = [
   },
   {
     number: "04",
+    categoryTag: "SOUTH INDIAN",
     title: "DOSAS & MORE",
     subtitle: "Crispy delights for a perfect start to the day.",
     items: [
@@ -84,6 +89,7 @@ const breakfastSections: MenuSectionData[] = [
   },
   {
     number: "05",
+    categoryTag: "ACCOMPANIMENTS",
     title: "SIDES & EXTRAS",
     subtitle: "Perfect companions for your breakfast.",
     items: [
@@ -199,7 +205,7 @@ export default function BreakfastMenuPage() {
             className="flex flex-col items-center justify-center"
           >
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mb-2" />
-            <p className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#9E7A36] font-normal leading-snug text-center px-4">
+            <p className="font-cursive text-3xl sm:text-4xl md:text-5xl text-[#9E7A36] font-normal leading-relaxed text-center px-4">
               "Awaken your senses with Grandeur’s morning collection, featuring authentic hand-crafted appams, golden crispy parottas, and traditional breakfast delicacies prepared with pure passion."
             </p>
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mt-2" />
@@ -249,23 +255,30 @@ export default function BreakfastMenuPage() {
                   transition={{ duration: 0.6, delay: 0.15 }}
                   className="w-full lg:w-1/2 flex flex-col justify-center"
                 >
-                  {/* Number & Title Header */}
+                  {/* Number, Category Tag & Title Header */}
                   <div className="flex items-baseline space-x-3 mb-1">
                     <span className="font-serif text-5xl sm:text-7xl lg:text-8xl font-light text-[#D4C2A5] select-none leading-none">
                       {sec.number}
                     </span>
-                    <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1814] tracking-tight uppercase leading-none">
-                      {sec.title}
-                    </h2>
+                    <div className="flex flex-col">
+                      {sec.categoryTag && (
+                        <span className="text-xs sm:text-xs font-bold text-[#A68858] uppercase tracking-[0.25em]">
+                          {sec.categoryTag}
+                        </span>
+                      )}
+                      <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1814] tracking-tight uppercase leading-none">
+                        {sec.title}
+                      </h2>
+                    </div>
                   </div>
 
                   {/* Subtitle */}
-                  <p className="text-stone-500 text-xs sm:text-sm font-light leading-snug mb-3 italic">
+                  <p className="text-stone-600 text-sm sm:text-base font-normal leading-relaxed mb-4 italic">
                     {sec.subtitle}
                   </p>
 
                   {/* Menu Items Table */}
-                  <div className="space-y-2">
+                  <div className="space-y-3 sm:space-y-2">
                     {sec.items.map((item, idx) => (
                       <motion.div
                         key={idx}
@@ -273,13 +286,13 @@ export default function BreakfastMenuPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.15 + idx * 0.04 }}
-                        className="flex items-baseline justify-between text-sm sm:text-base border-b border-stone-300/35 pb-1 hover:border-[#B38F4E]/60 transition-colors"
+                        className="flex items-baseline justify-between text-base sm:text-base border-b border-stone-300/40 py-2 sm:py-1.5 hover:border-[#B38F4E]/60 transition-colors"
                       >
-                        <span className="font-sans font-medium text-[#292524]">
+                        <span className="font-sans font-semibold text-stone-900 text-base sm:text-base">
                           {item.name}
                         </span>
-                        <span className="flex-1 border-b border-dotted border-stone-400/35 mx-3" />
-                        <span className="font-sans font-bold text-[#8B6914] min-w-[50px] text-right">
+                        <span className="flex-1 border-b border-dotted border-stone-400/40 mx-2.5 sm:mx-3" />
+                        <span className="font-sans font-bold text-[#8B6914] min-w-[55px] text-right text-base sm:text-base">
                           {item.price}
                         </span>
                       </motion.div>

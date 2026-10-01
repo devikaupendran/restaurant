@@ -115,7 +115,7 @@ export default function FAQPage() {
             Frequently Asked Questions
           </h1>
 
-          <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
             Find answers to common questions about our branch locations, menu offerings, dining facilities, and operating hours across Korani (Attingal) and Parippally.
           </p>
         </motion.div>
@@ -127,7 +127,7 @@ export default function FAQPage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search questions, menus, or locations..."
-            className="w-full pl-12 pr-4 py-3.5 rounded-full bg-white border border-stone-200/90 shadow-sm text-stone-900 placeholder:text-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#B38F4E]/40 transition-all duration-300"
+            className="w-full pl-12 pr-4 py-3.5 rounded-full bg-white border border-stone-200/90 shadow-sm text-stone-900 placeholder:text-stone-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#B38F4E]/40 transition-all duration-300"
           />
           <svg className="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2 fill-current" viewBox="0 0 24 24">
             <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
@@ -135,7 +135,7 @@ export default function FAQPage() {
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-stone-400 hover:text-stone-700 font-bold"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-stone-500 hover:text-stone-800 font-bold"
             >
               Clear
             </button>
@@ -148,7 +148,7 @@ export default function FAQPage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-black text-[#C59E61] shadow-md border border-[#C59E61]/40"
                   : "bg-white/80 hover:bg-white text-stone-700 border border-stone-200/80 shadow-2xs"
@@ -177,7 +177,7 @@ export default function FAQPage() {
                     className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                   >
                     <div className="space-y-1">
-                      <span className="text-[10px] font-bold text-[#A88B52] uppercase tracking-wider block">
+                      <span className="text-xs font-bold text-[#A88B52] uppercase tracking-wider block">
                         {faq.category}
                       </span>
                       <h3 className="font-serif text-lg sm:text-xl font-normal text-[#1C1814] tracking-tight">
@@ -201,7 +201,7 @@ export default function FAQPage() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-2 border-t border-stone-100 text-stone-600 text-sm font-light leading-relaxed whitespace-pre-line">
+                        <div className="px-6 pb-6 pt-2 border-t border-stone-100 text-stone-800 text-sm sm:text-base font-normal leading-relaxed whitespace-pre-line">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -212,10 +212,10 @@ export default function FAQPage() {
             })
           ) : (
             <div className="text-center py-12 bg-white rounded-3xl border border-stone-200/80 p-8 space-y-3">
-              <p className="text-stone-500 text-sm">No questions found matching your search term.</p>
+              <p className="text-stone-600 text-sm sm:text-base">No questions found matching your search term.</p>
               <button
                 onClick={() => { setSearchQuery(""); setSelectedCategory("All Questions"); }}
-                className="text-xs font-bold text-[#A88B52] underline uppercase tracking-wider"
+                className="text-xs sm:text-sm font-bold text-[#A88B52] underline uppercase tracking-wider"
               >
                 Reset Search Filters
               </button>
@@ -229,7 +229,7 @@ export default function FAQPage() {
             <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#1C1814] tracking-tight">
               Still Have Questions?
             </h3>
-            <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               Our branch concierges are happy to help with menu details, locations, and directions.
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function FAQPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
               href="tel:+918943667000"
-              className="px-6 py-3 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2"
+              className="px-6 py-3 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs sm:text-sm uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2"
             >
               <span>Call Us Direct</span>
               <span>📞</span>
@@ -247,7 +247,7 @@ export default function FAQPage() {
               href="https://wa.me/918943667000"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2"
+              className="px-6 py-3 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs sm:text-sm uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2"
             >
               <span>WhatsApp Concierge</span>
               <span>💬</span>
@@ -255,7 +255,7 @@ export default function FAQPage() {
 
             <Link
               href="/branches"
-              className="px-6 py-3 rounded-full bg-white hover:bg-stone-50 text-stone-900 border border-stone-300 font-bold text-xs uppercase tracking-[0.15em] shadow-2xs transition-all duration-300"
+              className="px-6 py-3 rounded-full bg-white hover:bg-stone-50 text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm uppercase tracking-[0.15em] shadow-2xs transition-all duration-300"
             >
               View Our Branches
             </Link>

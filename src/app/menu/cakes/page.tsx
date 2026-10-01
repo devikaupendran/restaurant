@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackButton from "@/components/BackButton";
@@ -158,46 +157,9 @@ export default function CakesMenuPage() {
               Cakes
             </h1>
             
-            <p className="text-stone-500 text-xs sm:text-sm font-medium tracking-[0.25em] uppercase mb-6">
+            <p className="text-stone-500 text-xs sm:text-sm font-medium tracking-[0.25em] uppercase mb-2">
               FOR EVERY SWEET OCCASION
             </p>
-            
-            <div className="flex items-center gap-3">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="#section-intro"
-                className="inline-flex items-center space-x-2 px-7 py-2.5 bg-[#C2A680] hover:bg-[#B29367] text-white text-[11px] font-medium tracking-[0.25em] uppercase rounded-sm shadow-sm transition-colors duration-300"
-              >
-                <span>VIEW MENU</span>
-                <span>↓</span>
-              </motion.a>
-
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="https://wa.me/918943667000?text=Hello%20Grandeur%2C%20I%20would%20like%20to%20order%20a%20cake"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 px-6 py-2.5 bg-stone-900 hover:bg-stone-800 text-[#C2A680] text-[11px] font-medium tracking-[0.2em] uppercase rounded-sm shadow-sm transition-colors duration-300"
-              >
-                <span>ORDER NOW</span>
-                <span>→</span>
-              </motion.a>
-            </div>
-
-            {/* Quick Feature Badges */}
-            <div className="flex items-center justify-center gap-4 sm:gap-6 mt-6 text-[10px] sm:text-xs text-stone-500 font-medium">
-              <span className="flex items-center gap-1.5">
-                <span>🧁</span> Premium Ingredients
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span>✨</span> Custom Designs
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span>🚚</span> Same Day Delivery
-              </span>
-            </div>
           </motion.div>
 
           {/* Right Floating Image: Decadent Chocolate Cake */}
@@ -231,7 +193,7 @@ export default function CakesMenuPage() {
             className="flex flex-col items-center justify-center"
           >
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mb-2" />
-            <p className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#9E7A36] font-normal leading-snug text-center px-4">
+            <p className="font-cursive text-3xl sm:text-4xl md:text-5xl text-[#9E7A36] font-normal leading-relaxed text-center px-4">
               "A perfect blend of taste and confectionery art. Handcrafted daily with pure Belgian chocolate, fresh seasonal berries, and sweet celebratory memories."
             </p>
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mt-2" />
@@ -281,30 +243,30 @@ export default function CakesMenuPage() {
                   transition={{ duration: 0.6, delay: 0.15 }}
                   className="w-full lg:w-1/2 flex flex-col justify-center"
                 >
-                  {/* Category Tag */}
-                  {sec.categoryTag && (
-                    <span className="text-[11px] font-bold text-[#A88B52] uppercase tracking-[0.25em] mb-1 block">
-                      {sec.categoryTag}
-                    </span>
-                  )}
-
-                  {/* Number & Title Header */}
+                  {/* Number, Category Tag & Title Header */}
                   <div className="flex items-baseline space-x-3 mb-1">
                     <span className="font-serif text-5xl sm:text-7xl lg:text-8xl font-light text-[#D4C2A5] select-none leading-none">
                       {sec.number}
                     </span>
-                    <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1814] tracking-tight uppercase leading-none">
-                      {sec.title}
-                    </h2>
+                    <div className="flex flex-col">
+                      {sec.categoryTag && (
+                        <span className="text-xs sm:text-xs font-bold text-[#A88B52] uppercase tracking-[0.25em]">
+                          {sec.categoryTag}
+                        </span>
+                      )}
+                      <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1814] tracking-tight uppercase leading-none">
+                        {sec.title}
+                      </h2>
+                    </div>
                   </div>
 
                   {/* Subtitle */}
-                  <p className="text-stone-500 text-xs sm:text-sm font-light leading-snug mb-3 italic">
+                  <p className="text-stone-600 text-sm sm:text-base font-normal leading-relaxed mb-4 italic">
                     {sec.subtitle}
                   </p>
 
                   {/* Menu Items Table */}
-                  <div className="space-y-2">
+                  <div className="space-y-3 sm:space-y-2">
                     {sec.items.map((item, idx) => (
                       <motion.div
                         key={idx}
@@ -312,30 +274,17 @@ export default function CakesMenuPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.15 + idx * 0.04 }}
-                        className="flex items-baseline justify-between text-sm sm:text-base border-b border-stone-300/35 pb-1 hover:border-[#B38F4E]/60 transition-colors"
+                        className="flex items-baseline justify-between text-base sm:text-base border-b border-stone-300/40 py-2 sm:py-1.5 hover:border-[#B38F4E]/60 transition-colors"
                       >
-                        <span className="font-sans font-medium text-[#292524]">
+                        <span className="font-sans font-semibold text-stone-900 text-base sm:text-base">
                           {item.name}
                         </span>
-                        <span className="flex-1 border-b border-dotted border-stone-400/35 mx-3" />
-                        <span className="font-sans font-bold text-[#8B6914] min-w-[50px] text-right">
+                        <span className="flex-1 border-b border-dotted border-stone-400/40 mx-2.5 sm:mx-3" />
+                        <span className="font-sans font-bold text-[#8B6914] min-w-[55px] text-right text-base sm:text-base">
                           {item.price}
                         </span>
                       </motion.div>
                     ))}
-                  </div>
-
-                  {/* Order / Explore Button */}
-                  <div className="mt-4">
-                    <Link
-                      href="https://wa.me/918943667000?text=Hello%20Grandeur%2C%20I%20would%20like%20to%20inquire%20about%20cakes"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 px-5 py-2 bg-[#C2A680]/20 hover:bg-[#C2A680] text-stone-900 hover:text-white border border-[#C2A680]/60 rounded-full text-xs font-semibold tracking-wider transition-all duration-300"
-                    >
-                      <span>ORDER THIS COLLECTION</span>
-                      <span>→</span>
-                    </Link>
                   </div>
                 </motion.div>
 

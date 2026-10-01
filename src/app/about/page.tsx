@@ -54,7 +54,7 @@ export default function AboutPage() {
           {/* Top Left Label */}
           <div className="relative z-10 flex items-center space-x-3 text-white/90">
             <span className="w-1.5 h-6 bg-[#C59E61] rounded-full" />
-            <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase">
+            <span className="text-xs sm:text-sm font-bold tracking-[0.3em] uppercase">
               OUR CULINARY JOURNEY
             </span>
           </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-none drop-shadow-md">
               About Us
             </h1>
-            <p className="text-stone-200 text-sm sm:text-base font-light leading-relaxed drop-shadow">
+            <p className="text-stone-100 text-sm sm:text-base font-normal leading-relaxed drop-shadow">
               Good Food Brings People Together. Discover our passion for multicuisine excellence, warm hospitality, and memorable dining experiences across Korani (Attingal) and Parippally.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
             </motion.button>
 
             {/* Quick Location Pills */}
-            <div className="hidden sm:flex items-center space-x-3 text-xs text-white/80 font-medium">
+            <div className="hidden sm:flex items-center space-x-3 text-xs text-white/90 font-semibold">
               <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">📍 Korani (Attingal)</span>
               <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">📍 Parippally</span>
             </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
             {/* Left Story Text */}
             <div className="lg:col-span-6 space-y-5">
               <div className="flex items-center space-x-3">
-                <span className="text-[11px] font-bold text-[#A88B52] uppercase tracking-[0.3em]">
+                <span className="text-xs font-bold text-[#A88B52] uppercase tracking-[0.3em]">
                   OUR STORY
                 </span>
                 <span className="w-12 h-[1px] bg-[#B38F4E]/60 inline-block" />
@@ -111,11 +111,11 @@ export default function AboutPage() {
                 A Passion for <br /> Great Food
               </h2>
 
-              <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+              <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
                 At Grandeur, we believe that food is more than just a meal — it's an experience. Our journey began with a simple idea: to bring people together over fresh ingredients, authentic multicuisine flavors, and warm hospitality.
               </p>
 
-              <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+              <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
                 What started as a cherished culinary passion has grown into a beloved dining destination across our Parippally and Korani (Attingal) branches, thanks to our amazing guests and a dedicated kitchen team who share the same love for great food.
               </p>
             </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
         >
           {/* Header */}
           <div className="space-y-2 max-w-2xl mx-auto">
-            <span className="text-[11px] font-bold text-[#A88B52] uppercase tracking-[0.3em]">
+            <span className="text-xs font-bold text-[#A88B52] uppercase tracking-[0.3em]">
               OUR VALUES
             </span>
 
@@ -159,7 +159,7 @@ export default function AboutPage() {
               <span className="font-serif text-5xl sm:text-6xl font-normal text-[#B38F4E] tracking-tight">
                 100%
               </span>
-              <p className="text-stone-600 text-xs sm:text-sm font-medium tracking-wide">
+              <p className="text-stone-700 text-sm sm:text-base font-semibold tracking-wide">
                 Quality Ingredients
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
               <span className="font-serif text-5xl sm:text-6xl font-normal text-[#B38F4E] tracking-tight">
                 2K+
               </span>
-              <p className="text-stone-600 text-xs sm:text-sm font-medium tracking-wide">
+              <p className="text-stone-700 text-sm sm:text-base font-semibold tracking-wide">
                 Happy Guests
               </p>
             </div>
@@ -179,7 +179,7 @@ export default function AboutPage() {
               <span className="font-serif text-5xl sm:text-6xl font-normal text-[#B38F4E] tracking-tight">
                 5+
               </span>
-              <p className="text-stone-600 text-xs sm:text-sm font-medium tracking-wide">
+              <p className="text-stone-700 text-sm sm:text-base font-semibold tracking-wide">
                 Years of Serving
               </p>
             </div>
@@ -198,7 +198,7 @@ export default function AboutPage() {
           <div className="space-y-3 max-w-3xl mx-auto">
             <div className="flex items-center justify-center space-x-3">
               <span className="w-8 h-[1px] bg-[#B38F4E]/60 inline-block" />
-              <span className="text-[11px] font-bold text-[#A88B52] uppercase tracking-[0.3em]">
+              <span className="text-xs font-bold text-[#A88B52] uppercase tracking-[0.3em]">
                 OUR ROOTS
               </span>
               <span className="w-8 h-[1px] bg-[#B38F4E]/60 inline-block" />
@@ -208,7 +208,7 @@ export default function AboutPage() {
               From Kollam to Trivandrum
             </h2>
 
-            <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               Two vibrant districts. One shared love for authentic Kerala cuisine. <br className="hidden sm:inline" />
               Our journey is inspired by the rich culture, landscapes and people of Kollam and Trivandrum.
             </p>
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 Kollam District
               </h3>
               <div className="w-10 h-[1.5px] bg-[#B38F4E]/60 my-1" />
-              <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed max-w-md">
+              <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed max-w-md">
                 Known for its serene backwaters, historic ports and rich cultural heritage, Kollam reflects the soul of Kerala. Its flavours, traditions and coastal charm continue to inspire our cuisine.
               </p>
             </div>
@@ -255,7 +255,7 @@ export default function AboutPage() {
                 Trivandrum District
               </h3>
               <div className="w-10 h-[1.5px] bg-[#B38F4E]/60 my-1" />
-              <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed max-w-md">
+              <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed max-w-md">
                 The capital city, Trivandrum, is a blend of heritage, spirituality and modern vibrance. From iconic temples to scenic shores, it brings a unique warmth and diversity to our culinary story.
               </p>
             </div>
@@ -284,7 +284,7 @@ export default function AboutPage() {
           {/* Right Space Content */}
           <div className="lg:col-span-6 order-1 lg:order-2 space-y-5">
             <div className="flex items-center space-x-3">
-              <span className="text-[11px] font-bold text-[#A88B52] uppercase tracking-[0.3em]">
+              <span className="text-xs font-bold text-[#A88B52] uppercase tracking-[0.3em]">
                 OUR SPACE
               </span>
               <span className="w-12 h-[1px] bg-[#B38F4E]/60 inline-block" />
@@ -294,7 +294,7 @@ export default function AboutPage() {
               A Place to Belong
             </h2>
 
-            <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+            <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
               Whether it's a casual meal, a family gathering, or a special celebration, Grandeur offers a warm and comfortable space where good food and great company come together.
             </p>
 

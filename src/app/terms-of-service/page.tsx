@@ -138,11 +138,11 @@ export default function TermsOfServicePage() {
                   id={sec.id}
                   className="scroll-mt-32 border-b border-stone-300/40 pb-8 sm:pb-10 last:border-0"
                 >
-                  <h2 className="font-sans text-xs sm:text-sm font-bold text-[#1C1814] uppercase tracking-[0.25em] mb-4 leading-snug">
+                  <h2 className="font-sans text-sm sm:text-base font-bold text-[#1C1814] uppercase tracking-[0.2em] mb-4 leading-snug">
                     {sec.title}
                   </h2>
 
-                  <div className="space-y-3 text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
+                  <div className="space-y-3 text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
                     {sec.content.map((paragraph, idx) => (
                       <p key={idx}>{paragraph}</p>
                     ))}

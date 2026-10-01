@@ -181,7 +181,7 @@ export default function BiriyaniMenuPage() {
             className="flex flex-col items-center justify-center"
           >
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mb-2" />
-            <p className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#9E7A36] font-normal leading-snug text-center px-4">
+            <p className="font-cursive text-3xl sm:text-4xl md:text-5xl text-[#9E7A36] font-normal leading-relaxed text-center px-4">
               "Relish the rich heritage of Grandeur’s traditional Dum Biriyanis, slow-cooked in sealed copper handis with fragrant long-grain basmati, exotic ground spices, and tender cuts of meat."
             </p>
             <div className="w-16 h-[1px] bg-[#B38F4E]/60 mt-2" />
@@ -235,7 +235,7 @@ export default function BiriyaniMenuPage() {
                     </span>
                     <div className="flex flex-col">
                       {sec.categoryTag && (
-                        <span className="text-[10px] sm:text-xs font-bold text-[#A68858] uppercase tracking-[0.25em]">
+                        <span className="text-xs sm:text-xs font-bold text-[#A68858] uppercase tracking-[0.25em]">
                           {sec.categoryTag}
                         </span>
                       )}
@@ -246,12 +246,12 @@ export default function BiriyaniMenuPage() {
                   </div>
 
                   {/* Subtitle */}
-                  <p className="text-stone-500 text-xs sm:text-sm font-light leading-snug mb-3 italic">
+                  <p className="text-stone-600 text-sm sm:text-base font-normal leading-relaxed mb-4 italic">
                     {sec.subtitle}
                   </p>
 
                   {/* Menu Items Table */}
-                  <div className="space-y-2">
+                  <div className="space-y-3 sm:space-y-2">
                     {sec.items.map((item, idx) => (
                       <motion.div
                         key={idx}
@@ -259,13 +259,13 @@ export default function BiriyaniMenuPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.15 + idx * 0.04 }}
-                        className="flex items-baseline justify-between text-sm sm:text-base border-b border-stone-300/35 pb-1 hover:border-[#B38F4E]/60 transition-colors"
+                        className="flex items-baseline justify-between text-base sm:text-base border-b border-stone-300/40 py-2 sm:py-1.5 hover:border-[#B38F4E]/60 transition-colors"
                       >
-                        <span className="font-sans font-medium text-[#292524]">
+                        <span className="font-sans font-semibold text-stone-900 text-base sm:text-base">
                           {item.name}
                         </span>
-                        <span className="flex-1 border-b border-dotted border-stone-400/35 mx-3" />
-                        <span className="font-sans font-bold text-[#8B6914] min-w-[50px] text-right">
+                        <span className="flex-1 border-b border-dotted border-stone-400/40 mx-2.5 sm:mx-3" />
+                        <span className="font-sans font-bold text-[#8B6914] min-w-[55px] text-right text-base sm:text-base">
                           {item.price}
                         </span>
                       </motion.div>

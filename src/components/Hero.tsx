@@ -84,7 +84,7 @@ export default function Hero() {
           className="flex items-center space-x-4 mb-6 sm:mb-8"
         >
           <span className="h-[1px] w-8 sm:w-16 bg-white/40 inline-block" />
-          <span className="text-neutral-200/90 text-[10px] sm:text-xs font-medium uppercase tracking-[0.35em]">
+          <span className="text-neutral-200 text-xs sm:text-xs font-semibold uppercase tracking-[0.35em]">
             A TASTE WORTH REMEMBERING
           </span>
           <span className="h-[1px] w-8 sm:w-16 bg-white/40 inline-block" />
@@ -115,7 +115,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-xl text-neutral-100 text-sm sm:text-base font-light leading-relaxed mb-10 text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          className="max-w-xl text-neutral-100 text-sm sm:text-base font-normal leading-relaxed mb-10 text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
         >
           Immerse yourself in an extraordinary culinary journey where centuries-old multi-cuisine traditions meet modern gastronomy, handcrafted with passion and precision.
         </motion.p>
@@ -132,7 +132,7 @@ export default function Hero() {
             whileTap={{ scale: 0.97 }}
             href="#menu"
             onClick={(e) => handleScrollTo(e, "menu")}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-btn text-stone-950 font-medium text-[11px] uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-amber-950/30 flex items-center justify-center group cursor-pointer"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-btn text-stone-950 font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 shadow-lg shadow-amber-950/30 flex items-center justify-center group cursor-pointer"
           >
             <span>EXPLORE MENU</span>
             <span className="ml-2.5 transform group-hover:translate-x-1 transition-transform duration-300">
@@ -145,7 +145,7 @@ export default function Hero() {
             whileTap={{ scale: 0.97 }}
             href="#about"
             onClick={(e) => handleScrollTo(e, "about")}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/30 hover:border-[#C59E61] bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white hover:text-amber-200 font-medium text-[11px] uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center cursor-pointer"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/30 hover:border-[#C59E61] bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white hover:text-amber-200 font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center cursor-pointer"
           >
             OUR STORY
           </motion.a>

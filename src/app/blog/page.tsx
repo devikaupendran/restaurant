@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -118,6 +118,30 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Articles");
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
 
+  // Prevent background scrolling when article modal is open
+  useEffect(() => {
+    if (activePost) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [activePost]);
+
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActivePost(null);
+      }
+    };
+    if (activePost) {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [activePost]);
+
   const filteredPosts = selectedCategory === "All Articles"
     ? blogPosts
     : blogPosts.filter(post => post.category === selectedCategory);
@@ -150,7 +174,7 @@ export default function BlogPage() {
             Culinary Stories & Insights
           </h1>
 
-          <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
             Explore articles on spice traditions, kitchen secrets, Arabian charcoal grilling techniques, and fine dining experiences across our branches.
           </p>
         </motion.div>
@@ -174,7 +198,7 @@ export default function BlogPage() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+              <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider">
                 FEATURED ARTICLE
               </div>
             </div>
@@ -182,7 +206,7 @@ export default function BlogPage() {
             {/* Featured Content */}
             <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-xs text-stone-500 font-medium">
+                <div className="flex items-center space-x-3 text-xs sm:text-sm text-stone-600 font-medium">
                   <span className="text-[#A88B52] font-semibold">{featuredPost.category}</span>
                   <span>•</span>
                   <span>{featuredPost.date}</span>
@@ -194,19 +218,19 @@ export default function BlogPage() {
                   {featuredPost.title}
                 </h2>
 
-                <p className="text-stone-600 text-sm font-light leading-relaxed">
+                <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed">
                   {featuredPost.excerpt}
                 </p>
               </div>
 
               <div className="pt-2 flex items-center justify-between">
-                <div className="text-xs text-stone-500 font-medium">
+                <div className="text-sm text-stone-600 font-medium">
                   By <span className="text-stone-900 font-semibold">{featuredPost.author}</span>
                 </div>
 
                 <button
                   onClick={() => setActivePost(featuredPost)}
-                  className="px-6 py-2.5 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs sm:text-sm uppercase tracking-[0.15em] shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-2 cursor-pointer"
                 >
                   <span>Read Article</span>
                   <span className="text-sm">→</span>
@@ -222,7 +246,7 @@ export default function BlogPage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-black text-[#C59E61] shadow-md border border-[#C59E61]/40"
                   : "bg-white/80 hover:bg-white text-stone-700 border border-stone-200/80 shadow-2xs"
@@ -254,24 +278,24 @@ export default function BlogPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-semibold uppercase tracking-wider">
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-wider">
                     {post.category}
                   </div>
                 </div>
 
                 {/* Body Content */}
                 <div className="p-6 space-y-3">
-                  <div className="flex items-center space-x-2 text-[11px] text-stone-400">
+                  <div className="flex items-center space-x-2 text-xs text-stone-500 font-medium">
                     <span>{post.date}</span>
                     <span>•</span>
                     <span>{post.readTime}</span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-normal text-[#1C1814] tracking-tight leading-snug group-hover:text-[#B38F4E] transition-colors duration-300">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#1C1814] tracking-tight leading-snug group-hover:text-[#B38F4E] transition-colors duration-300">
                     {post.title}
                   </h3>
 
-                  <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed line-clamp-3">
+                  <p className="text-stone-700 text-sm sm:text-base font-normal leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
                 </div>
@@ -279,13 +303,13 @@ export default function BlogPage() {
 
               {/* Card Footer */}
               <div className="p-6 pt-0 flex items-center justify-between border-t border-stone-100 mt-4">
-                <span className="text-xs text-stone-500 font-medium">
+                <span className="text-xs sm:text-sm text-stone-600 font-medium">
                   By {post.author.split(" ")[0]}
                 </span>
 
                 <button
                   onClick={() => setActivePost(post)}
-                  className="text-xs font-bold text-[#A88B52] hover:text-[#1C1814] uppercase tracking-wider flex items-center space-x-1.5 transition-colors cursor-pointer"
+                  className="text-xs sm:text-sm font-bold text-[#A88B52] hover:text-[#1C1814] uppercase tracking-wider flex items-center space-x-1.5 transition-colors cursor-pointer"
                 >
                   <span>Read Full</span>
                   <span>→</span>
@@ -303,19 +327,19 @@ export default function BlogPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActivePost(null)}
-              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+              className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-[#FAF7F2] max-w-3xl w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-stone-200/80 my-8 max-h-[90vh] flex flex-col justify-between"
+                className="bg-[#FAF7F2] max-w-3xl w-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-stone-200/80 max-h-[88vh] sm:max-h-[85vh] flex flex-col relative"
               >
                 {/* Modal Header Bar */}
-                <div className="p-6 bg-white border-b border-stone-200/80 flex items-center justify-between sticky top-0 z-10">
-                  <div className="flex items-center space-x-3 text-xs text-stone-500">
-                    <span className="px-3 py-1 rounded-full bg-[#F5EFE6] text-[#A88B52] font-semibold text-[10px] uppercase border border-[#E8DEC9]">
+                <div className="px-6 py-4 sm:px-8 sm:py-5 bg-white border-b border-stone-200/80 flex items-center justify-between flex-shrink-0 z-10 shadow-xs">
+                  <div className="flex items-center space-x-3 text-xs sm:text-sm text-stone-500 font-medium">
+                    <span className="px-3 py-1 rounded-full bg-[#F5EFE6] text-[#A88B52] font-bold text-xs uppercase tracking-wider border border-[#E8DEC9]">
                       {activePost.category}
                     </span>
                     <span>•</span>
@@ -324,20 +348,21 @@ export default function BlogPage() {
 
                   <button
                     onClick={() => setActivePost(null)}
-                    className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-700 transition-colors cursor-pointer font-bold"
+                    aria-label="Close article modal"
+                    className="w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-700 hover:text-stone-950 transition-colors cursor-pointer font-bold text-base"
                   >
                     ✕
                   </button>
                 </div>
 
                 {/* Modal Scrollable Body */}
-                <div className="p-6 sm:p-10 overflow-y-auto space-y-6">
+                <div className="flex-1 min-h-0 overflow-y-auto p-6 sm:p-10 space-y-6 overscroll-contain">
                   <div className="space-y-3">
-                    <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#1C1814] tracking-tight leading-tight">
+                    <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#1C1814] tracking-tight leading-tight">
                       {activePost.title}
                     </h2>
 
-                    <div className="text-xs text-stone-500 font-medium">
+                    <div className="text-xs sm:text-sm text-stone-600 font-medium">
                       Published on {activePost.date} by <span className="text-stone-900 font-semibold">{activePost.author}</span>
                     </div>
                   </div>
@@ -354,7 +379,7 @@ export default function BlogPage() {
                   </div>
 
                   {/* Paragraphs */}
-                  <div className="space-y-4 text-stone-700 text-sm sm:text-base font-light leading-relaxed">
+                  <div className="space-y-4 text-stone-800 text-sm sm:text-base font-normal leading-relaxed">
                     {activePost.content.map((paragraph, pIdx) => (
                       <p key={pIdx}>{paragraph}</p>
                     ))}
@@ -365,7 +390,7 @@ export default function BlogPage() {
                     <Link
                       href="/menu"
                       onClick={() => setActivePost(null)}
-                      className="px-6 py-3 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs uppercase tracking-[0.15em] transition-all duration-300 inline-flex items-center space-x-2"
+                      className="px-6 py-3 rounded-full bg-black hover:bg-stone-900 text-[#C59E61] border border-[#C59E61]/40 font-bold text-xs sm:text-sm uppercase tracking-[0.15em] transition-all duration-300 inline-flex items-center space-x-2 shadow-sm"
                     >
                       <span>Explore Our Menu</span>
                       <span>→</span>
@@ -374,7 +399,7 @@ export default function BlogPage() {
                     <Link
                       href="/branches"
                       onClick={() => setActivePost(null)}
-                      className="text-xs font-semibold text-stone-600 hover:text-stone-950 underline underline-offset-4"
+                      className="text-xs sm:text-sm font-semibold text-stone-700 hover:text-stone-950 underline underline-offset-4"
                     >
                       Visit Our Branches
                     </Link>
